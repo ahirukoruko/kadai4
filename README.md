@@ -35,7 +35,6 @@ clean :
     rm kadai4.out
 ```
 ## 出力
-出力
 ![](/images/4.png)
 ![](/images/plot.png)
 
