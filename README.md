@@ -2,39 +2,26 @@
 
 ## ソースコード
 ```C
-#include <stdio.h>
-#include <math.h>
-
-int main()
-{
-     double x,y;
-    FILE *fp;
-    fp = fopen("forplot.txt", "w");
-    for(x=0;x<=100;x++)
-    {
-    y=sin(x*2*M_PI/100);
-    fprintf (fp,"%lf %lf\n",x*2*M_PI/100,y);
-    }
-    fclose(fp);
-    return 0;
-}
+FILE *fp;
 ```
-
-## makefile
+ファイルを扱えるようにするためのファイルポインタを宣言する。
+## fopen
+```C
+fp = fopen("forplot.txt", "w");
 ```
-# makefile
-.PHONY : clean
-
-kadai4.out : kadai4.c
-    gcc -o kadai4.out kadai4.c
-    
-do :
-    ./kadai4.out
-    
-clean :
-    rm kadai4.out
+forplot.txtのファイルを開く。
+ファイル名のあとのwは書き込みを表す。rは読み込み。
+## fprintf
+```C
+ fprintf (fp,"%lf %lf\n",x*2*M_PI/100,y);
 ```
-## 出力
+ファイルに文字列を格納する。
+## fclose
+```C
+fclose(fp);
+```
+fopen関数で開いたファイルを閉じる。
+# 出力
 ![](/images/4.png)
 ![](/images/plot.png)
 
